@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour {
 
@@ -10,13 +11,9 @@ public class WaveSpawner : MonoBehaviour {
     [SerializeField] float timeBetweenWaves = 5f;
     [SerializeField] float countdown = 2f;
     [SerializeField] float timeBetweenEnemies = 0.5f;
+    [SerializeField] Text waveCountdownText;
 
     private int waveIndex;
-
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
@@ -26,6 +23,7 @@ public class WaveSpawner : MonoBehaviour {
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
+        waveCountdownText.text = Mathf.Round(countdown).ToString();
     }
 
     IEnumerator SpawnWave()
