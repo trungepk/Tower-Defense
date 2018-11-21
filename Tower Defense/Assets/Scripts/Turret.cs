@@ -7,8 +7,12 @@ public class Turret : MonoBehaviour {
     [SerializeField] LayerMask checkLayer;
     [SerializeField] Transform partToRotate;
     [SerializeField] float turnSpeed = 10f;
+    [SerializeField] float fireRate = 2f;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
 
-    [SerializeField] Transform nearestTarget;
+    private float fireCoundown;
+    private Transform nearestTarget;
 	void Start () {
 		
 	}
@@ -17,6 +21,7 @@ public class Turret : MonoBehaviour {
     {
         DetectNearestEnemy();
         LockOnTarget();
+        CountDownToShoot();
     }
 
     private void DetectNearestEnemy()
@@ -41,6 +46,26 @@ public class Turret : MonoBehaviour {
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
             partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
+    }
+
+    private void CountDownToShoot()
+    {
+        if (fireCoundown <= 0 && nearestTarget)
+        {
+            Shoot();
+            fireCoundown = 1f / fireRate;
+        }
+        fireCoundown -= Time.deltaTime;
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        if (bullet)
+        {
+            bullet.Seek(nearestTarget);
         }
     }
 
