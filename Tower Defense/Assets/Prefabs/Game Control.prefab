@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822149812202870}
   - component: {fileID: 114719753541174186}
+  - component: {fileID: 114101848586380192}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -40,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114101848586380192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784520991960822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3fd148bf152fd44a9fb5c08f082cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardTurretPrefab: {fileID: 1068887789620296, guid: a84d72c3d8e7d8e4a9cbd5cee0838ffc,
+    type: 2}
 --- !u!114 &114719753541174186
 MonoBehaviour:
   m_ObjectHideFlags: 1
