@@ -7,31 +7,52 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float panSpeed = 30f;
     [SerializeField] float panBorderThickness = 10f;
     [SerializeField] float scrollSpeed = 10f;
-    [SerializeField] float minY = 10f;
-    [SerializeField] float maxY = 80f;
+    [SerializeField] Vector2 scrollLimit;
+    [SerializeField] Vector2 panLimit;
 
-	void Update () {
+	void Update ()
+    {
+        Vector3 pos = transform.position;
+        pos = Pan(pos);
+        pos = Scroll(pos);
+        pos = Limit(pos);
+        transform.position = pos;
+    }
+
+    private Vector3 Pan(Vector3 pos)
+    {
         if (Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
+            pos.z += panSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= panBorderThickness)
         {
-            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
+            pos.z -= panSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A) || Input.mousePosition.x <= panBorderThickness)
         {
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
+            pos.x -= panSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
+            pos.x += panSpeed * Time.deltaTime;
         }
 
+        return pos;
+    }
+
+    private Vector3 Scroll(Vector3 pos)
+    {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Vector3 pos = transform.position;
-        pos.y -= scroll * scrollSpeed * Time.deltaTime;
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        transform.position = pos;
-	}
+        pos.y -= scroll * scrollSpeed * Time.deltaTime * 1000;
+        return pos;
+    }
+
+    private Vector3 Limit(Vector3 pos)
+    {
+        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
+        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+        pos.y = Mathf.Clamp(pos.y, scrollLimit.x, scrollLimit.y);
+        return pos;
+    }
 }
