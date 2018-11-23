@@ -15,4 +15,9 @@ public class Shop : MonoBehaviour {
     {
         buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
     }
+
+    public void PurchaseMissleLauncher()
+    {
+        buildManager.SetTurretToBuild(buildManager.missleLauncherPrefab);
+    }
 }
