@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4378552696024352}
   - component: {fileID: 114422278858147430}
   m_Layer: 0
-  m_Name: 'Missile Launcher '
+  m_Name: Missile Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026763996906354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.72, z: 3.16}
+  m_LocalPosition: {x: 0, y: -0.17, z: 3.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4346686317126294}
@@ -257,13 +257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d900d5321578f45a736393aac2d70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 20
   checkLayer:
     serializedVersion: 2
     m_Bits: 512
   partToRotate: {fileID: 4346686317126294}
   turnSpeed: 10
-  fireRate: 2
-  bulletPrefab: {fileID: 1340301346943492, guid: 34f2fff0b9f951b4588a6c152a028f5d,
+  fireRate: 0.5
+  bulletPrefab: {fileID: 1625319874484072, guid: bec9ac89f285e6946b38a82b31fcd6ad,
     type: 2}
   firePoint: {fileID: 4021551944697212}
