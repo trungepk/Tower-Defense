@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour {
-
+    public TurretBlueprint standardTurret;
+    public TurretBlueprint missleLauncher;
     BuildManager buildManager;
 
     private void Start()
@@ -11,13 +12,13 @@ public class Shop : MonoBehaviour {
         buildManager = BuildManager.instance;
     }
 
-    public void PurchaseStandardTurret()
+    public void SelectStandardTurret()
     {
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void PurchaseMissleLauncher()
+    public void SelectMissleLauncher()
     {
-        buildManager.SetTurretToBuild(buildManager.missleLauncherPrefab);
+        buildManager.SelectTurretToBuild(missleLauncher);
     }
 }
