@@ -48,7 +48,7 @@ public class Node : MonoBehaviour {
         if (!buildManager.CanBuild)
             return;
 
-        if (turret != null)
+        if (turret != null || !buildManager.HasMoney)
         {
             rend.material.color = unableToBuildColor;
             return;

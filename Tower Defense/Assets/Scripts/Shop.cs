@@ -21,4 +21,9 @@ public class Shop : MonoBehaviour {
     {
         buildManager.SelectTurretToBuild(missleLauncher);
     }
+
+    public int GetTurretPrice(TurretBlueprint turret)
+    {
+        return turret.cost;
+    }
 }

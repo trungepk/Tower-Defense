@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4822149812202870}
   - component: {fileID: 114719753541174186}
   - component: {fileID: 114101848586380192}
+  - component: {fileID: 114874966185719564}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -74,3 +75,15 @@ MonoBehaviour:
   countdown: 2
   timeBetweenEnemies: 0.5
   waveCountdownText: {fileID: 0}
+--- !u!114 &114874966185719564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784520991960822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f6801b1394574cb99d484897e7ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 100
