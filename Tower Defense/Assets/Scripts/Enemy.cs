@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] float speed = 10f;
+    [SerializeField] int health = 100;
+    [SerializeField] int value = 50;
 
     private Transform target;
     private int waypointIndex;
@@ -39,6 +41,21 @@ public class Enemy : MonoBehaviour {
     private void EndPoint()
     {
         PlayerStat.lives--;
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        PlayerStat.money += value;
         Destroy(gameObject);
     }
 }

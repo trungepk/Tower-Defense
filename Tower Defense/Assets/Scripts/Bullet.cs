@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     [SerializeField] LayerMask targetLayer;
+    [SerializeField] int damage = 50;
     [SerializeField] float speed = 70f;
     [SerializeField] float explosionRadius;
     
@@ -60,7 +61,11 @@ public class Bullet : MonoBehaviour {
 
     private void Damage(Transform target)
     {
-        Destroy(target.gameObject);
+        Enemy e = target.GetComponent<Enemy>();
+        if (e)
+        {
+            e.TakeDamage(damage);
+        }
     }
 
     private void OnDrawGizmosSelected ()
