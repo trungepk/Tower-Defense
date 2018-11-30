@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour {
     public TurretBlueprint standardTurret;
     public TurretBlueprint missleLauncher;
+    public TurretBlueprint laserBeamer;
     BuildManager buildManager;
 
     private void Start()
@@ -20,5 +21,10 @@ public class Shop : MonoBehaviour {
     public void SelectMissleLauncher()
     {
         buildManager.SelectTurretToBuild(missleLauncher);
+    }
+
+    public void SelectLaserBeamer()
+    {
+        buildManager.SelectTurretToBuild(laserBeamer);
     }
 }

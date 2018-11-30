@@ -10,7 +10,7 @@ public class PriceUI : MonoBehaviour {
 
     public enum TurretEnum
     {
-        standardTurret, missleLauncher
+        standardTurret, missleLauncher, laserBeamer
     }
 
     public TurretEnum turret;
@@ -29,7 +29,11 @@ public class PriceUI : MonoBehaviour {
         }else if(turret == TurretEnum.missleLauncher)
         {
             return shop.missleLauncher.cost;
+        }else if(turret == TurretEnum.laserBeamer)
+        {
+            return shop.laserBeamer.cost;
         }
+
         return -1;
     }
 	
