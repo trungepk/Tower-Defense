@@ -9,39 +9,13 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float health = 100f;
     [SerializeField] int value = 50;
 
-    private Transform target;
-    private int waypointIndex;
+    public float Speed { get { return speed; } set { speed = value; } }
+
+    public float StartSpeed { get; set; }
 
     private void Start()
     {
-        target = Waypoint.points[0];
-    }
-
-    private void Update()
-    {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f) 
-        {
-            GetNextWaypoint();
-        }
-    }
-
-    private void GetNextWaypoint()
-    {
-        if (waypointIndex >= Waypoint.points.Length - 1)
-        {
-            EndPoint();
-            return;
-        }
-        waypointIndex++;
-        target = Waypoint.points[waypointIndex];
-    }
-
-    private void EndPoint()
-    {
-        PlayerStat.lives--;
-        Destroy(gameObject);
+        StartSpeed = speed;
     }
 
     public void TakeDamage(float dmg)
@@ -57,5 +31,10 @@ public class Enemy : MonoBehaviour {
     {
         PlayerStat.money += value;
         Destroy(gameObject);
+    }
+
+    public void Slow(float slowRate)
+    {
+        speed = StartSpeed * (1f - slowRate);
     }
 }

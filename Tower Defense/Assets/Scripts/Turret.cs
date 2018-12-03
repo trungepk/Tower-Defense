@@ -19,6 +19,7 @@ public class Turret : MonoBehaviour {
     [SerializeField] bool useLaser;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float damageOverTime = 30f;
+    [SerializeField] [Range(0, 1)] float slowRate = 0.5f;
 
     private float fireCoundown;
     private Transform nearestTarget;
@@ -76,6 +77,7 @@ public class Turret : MonoBehaviour {
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, nearestTarget.position);
         target.TakeDamage(damageOverTime * Time.deltaTime);
+        target.Slow(slowRate);
     }
 
     private void CountDownToShoot()
