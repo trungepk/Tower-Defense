@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour {
     private void Die()
     {
         PlayerStat.money += value;
+        value = 0;
         Destroy(gameObject);
     }
 
