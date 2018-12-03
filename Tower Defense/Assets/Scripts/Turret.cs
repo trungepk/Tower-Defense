@@ -2,19 +2,27 @@
 using UnityEngine;
 
 public class Turret : MonoBehaviour {
-
-    [SerializeField] float range = 15f;
+    [Header("Turret set-up")]
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Transform partToRotate;
+    [SerializeField] Transform firePoint;
+
+    [Header("General")]
+    [SerializeField] float range = 15f;
     [SerializeField] float turnSpeed = 10f;
+
+    [Header("Default bullet")]
     [SerializeField] float fireRate = 2f;
     [SerializeField] GameObject bulletPrefab;
+
+    [Header("Use laser")]
     [SerializeField] bool useLaser;
     [SerializeField] LineRenderer lineRenderer;
-    [SerializeField] Transform firePoint;
+    [SerializeField] float damageOverTime = 30f;
 
     private float fireCoundown;
     private Transform nearestTarget;
+    private Enemy target;
 	
 	void Update ()
     {
@@ -29,7 +37,7 @@ public class Turret : MonoBehaviour {
         }
 
         if (useLaser)
-            Laser();
+            ShootLaser();
         else
             CountDownToShoot();
     }
@@ -41,6 +49,7 @@ public class Turret : MonoBehaviour {
         if (colliders.Length >= 1)
         {
             nearestTarget = colliders[0].transform;
+            target = nearestTarget.GetComponent<Enemy>();
         }
         else
         {
@@ -59,13 +68,14 @@ public class Turret : MonoBehaviour {
         }
     }
 
-    private void Laser()
+    private void ShootLaser()
     {
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, nearestTarget.position);
+        target.TakeDamage(damageOverTime * Time.deltaTime);
     }
 
     private void CountDownToShoot()

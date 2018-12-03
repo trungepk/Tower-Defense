@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] float speed = 10f;
-    [SerializeField] int health = 100;
+    [SerializeField] float health = 100f;
     [SerializeField] int value = 50;
 
     private Transform target;
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         health -= dmg;
         if (health <= 0)
