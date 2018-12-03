@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 20
-  checkLayer:
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 512
   partToRotate: {fileID: 4346686317126294}

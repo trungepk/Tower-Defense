@@ -4,29 +4,39 @@ using UnityEngine;
 public class Turret : MonoBehaviour {
 
     [SerializeField] float range = 15f;
-    [SerializeField] LayerMask checkLayer;
+    [SerializeField] LayerMask enemyLayer;
     [SerializeField] Transform partToRotate;
     [SerializeField] float turnSpeed = 10f;
     [SerializeField] float fireRate = 2f;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] bool useLaser;
+    [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Transform firePoint;
 
     private float fireCoundown;
     private Transform nearestTarget;
-	void Start () {
-		
-	}
 	
 	void Update ()
     {
         DetectNearestEnemy();
         LockOnTarget();
-        CountDownToShoot();
+        if (!nearestTarget)
+        {
+            if (useLaser && lineRenderer.enabled)
+                lineRenderer.enabled = false;
+
+            return;
+        }
+
+        if (useLaser)
+            Laser();
+        else
+            CountDownToShoot();
     }
 
     private void DetectNearestEnemy()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range, checkLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
         Array.Sort(colliders, new DistanceComparer(transform));
         if (colliders.Length >= 1)
         {
@@ -47,6 +57,15 @@ public class Turret : MonoBehaviour {
             Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
             partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
+    }
+
+    private void Laser()
+    {
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, nearestTarget.position);
     }
 
     private void CountDownToShoot()
