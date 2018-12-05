@@ -12,6 +12,11 @@ public class CameraController : MonoBehaviour {
 
 	void Update ()
     {
+        if (GameManager.gameOver)
+        {
+            enabled = false;
+            return;
+        }
         Vector3 pos = transform.position;
         pos = Pan(pos);
         pos = Scroll(pos);

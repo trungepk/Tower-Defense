@@ -4,7 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    private bool gameOver;
+    [SerializeField] GameObject gameOverUI;
+
+    public static bool gameOver;
+
+    private void Start()
+    {
+        gameOver = false;
+    }
 
     private void Update()
     {
@@ -19,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     private void EndGame()
     {
-        Debug.Log("Game over!");
         gameOver = true;
+        gameOverUI.SetActive(true);
     }
 }
