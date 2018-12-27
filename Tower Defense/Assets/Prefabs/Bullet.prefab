@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4214691364498110}
   - component: {fileID: 33449418439234366}
   - component: {fileID: 23231320505356224}
-  - component: {fileID: 135477068913354452}
   - component: {fileID: 114037050782183098}
   m_Layer: 0
   m_Name: Bullet
@@ -96,16 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975074c055c38954da70c26ccf84026a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 50
   speed: 70
---- !u!135 &135477068913354452
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1340301346943492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  explosionRadius: 0

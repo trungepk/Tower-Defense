@@ -127,5 +127,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
-  speed: 20
+  damage: 50
+  speed: 30
   explosionRadius: 8

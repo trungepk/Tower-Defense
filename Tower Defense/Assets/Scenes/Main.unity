@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551d169ff1e302040a369bb8a10bd0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundSurvivedText: {fileID: 304790072}
 --- !u!1001 &149690795
 Prefab:
   m_ObjectHideFlags: 0
@@ -10569,7 +10570,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1621456239}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 140075222}
+        m_MethodName: ReturnMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1621456239
@@ -11242,7 +11254,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1679922217}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 140075222}
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1679922217
