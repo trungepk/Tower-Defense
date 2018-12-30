@@ -9,8 +9,13 @@ public class Node : MonoBehaviour {
     [SerializeField] Color unableToBuildColor;
     [SerializeField] Vector3 positionOffset;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded;
+
     private Renderer rend;
     private Color startColor;
 
@@ -37,7 +42,35 @@ public class Node : MonoBehaviour {
         if (!buildManager.CanBuild)
             return;
 
-        buildManager.BuildTurretOn(this);
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
+
+    private void BuildTurret(TurretBlueprint blueprint)
+    {
+        if (PlayerStat.money < blueprint.cost)
+        {
+            return;
+        }
+        PlayerStat.money -= blueprint.cost;
+        GameObject turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        this.turret = turret;
+        turretBlueprint = blueprint;
+    }
+
+    public void UpgradeTurret()
+    {
+        if (PlayerStat.money < turretBlueprint.upgradeCost)
+        {
+            return;
+        }
+        PlayerStat.money -= turretBlueprint.upgradeCost;
+
+        Destroy(this.turret); //get rid of old turret
+
+        GameObject turret = Instantiate(turretBlueprint.upgradePrefab, GetBuildPosition(), Quaternion.identity);
+        this.turret = turret;
+
+        isUpgraded = true;
     }
 
     private void OnMouseEnter()
