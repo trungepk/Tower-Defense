@@ -8,6 +8,7 @@ public class NodeUI : MonoBehaviour {
     [SerializeField] GameObject ui;
     [SerializeField] Text upgradeCost;
     [SerializeField] Button upgradeButton;
+    [SerializeField] Text sellCost;
     private Node target;
 
     public void SetTarget(Node target)
@@ -17,6 +18,8 @@ public class NodeUI : MonoBehaviour {
         if (!target.isUpgraded)
         {
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
+            sellCost.text = "$" + target.turretBlueprint.GetSellAmount();
+            upgradeButton.interactable = true;
         }
         else
         {
@@ -34,6 +37,12 @@ public class NodeUI : MonoBehaviour {
     public void Upgrade()
     {
         target.UpgradeTurret();
+        BuildManager.instance.DeselectNode();
+    }
+
+    public void Sell()
+    {
+        target.SellTurret();
         BuildManager.instance.DeselectNode();
     }
 }

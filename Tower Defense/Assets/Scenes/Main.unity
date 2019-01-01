@@ -2960,6 +2960,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114101848586380192, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: nodeUI
+      value: 
+      objectReference: {fileID: 1150260452}
     - target: {fileID: 114719753541174186, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
         type: 2}
       propertyPath: startPos
@@ -2970,21 +2975,11 @@ Prefab:
       propertyPath: waveCountdownText
       value: 
       objectReference: {fileID: 926761721}
-    - target: {fileID: 114719753541174186, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+    - target: {fileID: 114653512621954070, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
         type: 2}
-      propertyPath: timeBetweenWaves
-      value: 10.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114874966185719564, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
-        type: 2}
-      propertyPath: startLives
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114101848586380192, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
-        type: 2}
-      propertyPath: nodeUI
+      propertyPath: gameOverUI
       value: 
-      objectReference: {fileID: 1150260452}
+      objectReference: {fileID: 140075220}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5, type: 2}
   m_IsPrefabAsset: 0
@@ -7611,6 +7606,7 @@ MonoBehaviour:
   ui: {fileID: 1251413676}
   upgradeCost: {fileID: 1337343134}
   upgradeButton: {fileID: 1809727798}
+  sellCost: {fileID: 460319634}
 --- !u!4 &1151496488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4651696001328134, guid: d38564eae1a223e4ab4c11a9974e9d96,
@@ -13160,23 +13156,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38564eae1a223e4ab4c11a9974e9d96, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1934530591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1784520991960822, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 446166166}
---- !u!114 &1934530596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934530591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1365e5dff66e2f40b1a1078572e4971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 140075220}
 --- !u!1001 &1975330199
 Prefab:
   m_ObjectHideFlags: 0
@@ -14221,7 +14200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2087711508}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1150260452}
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2087711508

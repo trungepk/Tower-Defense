@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114719753541174186}
   - component: {fileID: 114101848586380192}
   - component: {fileID: 114874966185719564}
+  - component: {fileID: 114653512621954070}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -57,6 +58,19 @@ MonoBehaviour:
     type: 2}
   missleLauncherPrefab: {fileID: 1355275736920398, guid: 177931c07015f9f46ab4c0d57d1f2cdf,
     type: 2}
+  nodeUI: {fileID: 0}
+--- !u!114 &114653512621954070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784520991960822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1365e5dff66e2f40b1a1078572e4971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
 --- !u!114 &114719753541174186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,7 +85,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4372482256054006, guid: 48f82b29178b67747837d598633b4f34,
     type: 2}
   startPos: {fileID: 0}
-  timeBetweenWaves: 5.5
+  timeBetweenWaves: 10.5
   countdown: 2
   timeBetweenEnemies: 0.5
   waveCountdownText: {fileID: 0}
@@ -86,4 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667f6801b1394574cb99d484897e7ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 100
+  startMoney: 10000
+  startLives: 1

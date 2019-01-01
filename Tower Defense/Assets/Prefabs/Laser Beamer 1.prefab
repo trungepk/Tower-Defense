@@ -271,7 +271,7 @@ MonoBehaviour:
   useLaser: 1
   lineRenderer: {fileID: 120997068924506304}
   damageOverTime: 50
-  slowRate: 0.94
+  slowRate: 0.86
 --- !u!120 &120997068924506304
 LineRenderer:
   m_ObjectHideFlags: 1
