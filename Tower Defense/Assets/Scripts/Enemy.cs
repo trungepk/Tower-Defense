@@ -10,17 +10,23 @@ public class Enemy : MonoBehaviour {
     [SerializeField] int value = 50;
 
     public float Speed { get { return speed; } set { speed = value; } }
+    public float Health { get { return health; } }
 
     public float StartSpeed { get; set; }
 
+    private HealthBar healthBar;
+   
+
     private void Start()
     {
+        healthBar = GetComponent<HealthBar>();
         StartSpeed = speed;
     }
 
     public void TakeDamage(float dmg)
     {
         health -= dmg;
+        healthBar.UpdateHealthBar(health);
         if (health <= 0)
         {
             Die();
