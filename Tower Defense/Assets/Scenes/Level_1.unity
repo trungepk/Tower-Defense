@@ -3343,6 +3343,11 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 140075220}
+    - target: {fileID: 114719753541174186, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: timeBetweenWaves
+      value: 5.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5, type: 2}
   m_IsPrefabAsset: 0

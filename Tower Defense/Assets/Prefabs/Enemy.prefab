@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1762249550354322
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 135952878412029372}
   - component: {fileID: 114902538006344826}
   - component: {fileID: 114283384683960988}
-  - component: {fileID: 114341827283480026}
+  - component: {fileID: 114211246315276242}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -140,6 +140,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762249550354322}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114211246315276242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762249550354322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ba07f4f4039ed4f9e87513698afacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarCanvas: {fileID: 1754334376808532}
+  healthBar: {fileID: 114936822791856318}
+  halfLifeBarColor: {r: 0.990566, g: 0.702631, b: 0, a: 1}
+  nearDeadBarColor: {r: 1, g: 0.0513366, b: 0, a: 1}
 --- !u!114 &114283384683960988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,18 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc1acaed214a6741a02a0236e4df31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114341827283480026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1762249550354322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ba07f4f4039ed4f9e87513698afacb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 114936822791856318}
 --- !u!114 &114815291604370722
 MonoBehaviour:
   m_ObjectHideFlags: 1

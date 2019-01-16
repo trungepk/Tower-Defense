@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(float dmg)
     {
         health -= dmg;
-        healthBar.UpdateHealthBar(health);
+        StartCoroutine(healthBar.UpdateHealthBar(health));
         if (health <= 0)
         {
             Die();
