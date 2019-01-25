@@ -6,21 +6,23 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour {
 
-    [SerializeField] Transform enemyPrefab;
+    [SerializeField] Wave[] waves;
     [SerializeField] Transform startPos;
     [SerializeField] float timeBetweenWaves = 5f;
     [SerializeField] float countdown = 2f;
-    [SerializeField] float timeBetweenEnemies = 0.5f;
     [SerializeField] Text waveCountdownText;
+    public static int EnemyAvailable;
 
     private int waveIndex;
 
     private void Update()
     {
+        if (EnemyAvailable > 0) return;
         if (countdown <= 0)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
         countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
@@ -29,17 +31,24 @@ public class WaveSpawner : MonoBehaviour {
 
     IEnumerator SpawnWave()
     {
-        waveIndex++;
+        Wave wave = waves[waveIndex];
         PlayerStat.rounds++;
-        for (int i = 0; i < waveIndex; i++)
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(timeBetweenEnemies);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
+        waveIndex++;
+        if (waveIndex == waves.Length)
+        {
+            Debug.Log("WON!");
+            this.enabled = false;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, startPos.position, Quaternion.identity);
+        Instantiate(enemy, startPos.position, Quaternion.identity);
+        EnemyAvailable++;
     }
 }
