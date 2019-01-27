@@ -3409,9 +3409,35 @@ Prefab:
       propertyPath: waves.Array.data[2].rate
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114719753541174186, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 446166167}
+    - target: {fileID: 114653512621954070, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: nextLevel
+      value: Level_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114653512621954070, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: levelToUnlock
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114653512621954070, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: sceneFader
+      value: 
+      objectReference: {fileID: 11559963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &446166167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114653512621954070, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 446166166}
+  m_Script: {fileID: 11500000, guid: d1365e5dff66e2f40b1a1078572e4971, type: 3}
 --- !u!1001 &448975508
 Prefab:
   m_ObjectHideFlags: 0

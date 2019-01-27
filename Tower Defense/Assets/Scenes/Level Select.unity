@@ -1012,6 +1012,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141581387}
   m_CullTransparentMesh: 0
+--- !u!114 &1216311338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114589166710180434, guid: 9ea5faaa011eb494486b5b77f3dabee9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1037722263}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1281179993 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114610818143509514, guid: c3c5b1c09763c1d40940eff664b714e8,
@@ -1131,6 +1137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 1281179993}
+  levelButtons:
+  - {fileID: 1216311338}
+  - {fileID: 1771038632}
 --- !u!4 &1596993810
 Transform:
   m_ObjectHideFlags: 0
@@ -1266,6 +1275,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699143304}
   m_CullTransparentMesh: 0
+--- !u!114 &1771038632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114589166710180434, guid: 9ea5faaa011eb494486b5b77f3dabee9,
+    type: 2}
+  m_PrefabInternal: {fileID: 919104276}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2050375687
 GameObject:
   m_ObjectHideFlags: 0

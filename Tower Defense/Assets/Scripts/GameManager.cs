@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] string nextLevel;
+    [SerializeField] int levelToUnlock;
+    [SerializeField] SceneFader sceneFader;
 
     public static bool gameOver;
 
@@ -28,5 +31,12 @@ public class GameManager : MonoBehaviour {
     {
         gameOver = true;
         gameOverUI.SetActive(true);
+    }
+
+    public void WonGame()
+    {
+        Debug.Log("WON!");
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        sceneFader.FadeTo(nextLevel);
     }
 }
