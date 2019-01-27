@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
     public float StartSpeed { get; set; }
 
     private HealthBar healthBar;
-   
+    private bool isDead;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
     {
         health -= dmg;
         StartCoroutine(healthBar.UpdateHealthBar(health));
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour {
 
     private void Die()
     {
+        isDead = true;
         PlayerStat.money += value;
         value = 0;
         WaveSpawner.EnemyAvailable--;

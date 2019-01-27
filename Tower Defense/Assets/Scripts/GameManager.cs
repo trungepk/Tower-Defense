@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] GameObject gameOverUI;
-    [SerializeField] string nextLevel;
-    [SerializeField] int levelToUnlock;
-    [SerializeField] SceneFader sceneFader;
-
+    [SerializeField] GameObject completeLevelUI;
     public static bool gameOver;
 
     private void Start()
@@ -35,8 +32,7 @@ public class GameManager : MonoBehaviour {
 
     public void WonGame()
     {
-        Debug.Log("WON!");
-        PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        sceneFader.FadeTo(nextLevel);
+        gameOver = true;
+        completeLevelUI.SetActive(true);
     }
 }
