@@ -96,6 +96,9 @@ public class Turret : MonoBehaviour {
         Bullet bullet = bulletObj.GetComponent<Bullet>();
         if (bullet)
         {
+            if (bullet.Speed < target.Speed)
+                bullet.Speed = target.Speed + 5;
+
             bullet.Seek(nearestTarget);
         }
     }

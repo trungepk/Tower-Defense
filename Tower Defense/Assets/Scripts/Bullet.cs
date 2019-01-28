@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour {
     
     private Transform target;
 
+    public float Speed { get { return speed; } set { speed = value; } }
+
     public void Seek(Transform target)
     {
         this.target = target;
@@ -26,7 +28,7 @@ public class Bullet : MonoBehaviour {
         }
 
         Vector3 dir = target.position - transform.position;
-        var distanceThisFrame = speed * Time.deltaTime;
+        var distanceThisFrame = Speed * Time.deltaTime;
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
