@@ -3698,6 +3698,16 @@ Prefab:
       propertyPath: completeLevelUI
       value: 
       objectReference: {fileID: 367494964}
+    - target: {fileID: 114874966185719564, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: startLives
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114874966185719564, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5,
+        type: 2}
+      propertyPath: startMoney
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b11d9a8e5e60eb42b39b84ff22a65b5, type: 2}
   m_IsPrefabAsset: 0

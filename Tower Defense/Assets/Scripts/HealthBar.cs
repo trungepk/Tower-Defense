@@ -24,7 +24,7 @@ public class HealthBar : MonoBehaviour {
         healthBar.fillAmount = currentHP / startHP;
         ChangeColor();
         yield return new WaitForSeconds(1f);
-        if (currentHP == enemy.Health)
+        if (currentHP == enemy.Health) //Keep display hp canvas in case of laser.
         {
             healthBarCanvas.SetActive(false);
         }
