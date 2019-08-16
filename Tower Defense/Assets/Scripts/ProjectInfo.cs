@@ -15,6 +15,7 @@ public class ProjectInfo
         float mbCount = ByteToMb(byteCount);
         mbCount = (float)Math.Round(mbCount, 2);
         Debug.Log("Project size is " + mbCount + " Mb");
+        GetProjectDirectories(directoryInfo);
     }
 
     private static long GetProjectSize(DirectoryInfo directoryInfo)
@@ -31,6 +32,16 @@ public class ProjectInfo
             size += GetProjectSize(item);
         }
         return size;
+    }
+
+    private static void GetProjectDirectories(DirectoryInfo directoryInfo)
+    {
+        Debug.Log(directoryInfo.Name);
+        DirectoryInfo[] subdirectories = directoryInfo.GetDirectories();
+        foreach (var item in subdirectories)
+        {
+            GetProjectDirectories(item);
+        }
     }
 
     private static float ByteToMb(long byteCount)
